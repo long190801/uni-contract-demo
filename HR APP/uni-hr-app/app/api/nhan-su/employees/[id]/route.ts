@@ -10,7 +10,8 @@ export async function GET(_: NextRequest, { params }: { params: Promise<{ id: st
       *,
       employee_documents(*),
       hr_contract_history(*),
-      teams_activity_snapshots(*)
+      teams_activity_snapshots(*),
+      attendance_records(*)
     `)
     .eq("id", id)
     .single()

@@ -12,7 +12,8 @@ export default async function EmployeeProfilePage({ params }: { params: Promise<
       *,
       employee_documents(*),
       hr_contract_history(*),
-      teams_activity_snapshots(*)
+      teams_activity_snapshots(*),
+      attendance_records(*)
     `)
     .eq("id", id)
     .single()

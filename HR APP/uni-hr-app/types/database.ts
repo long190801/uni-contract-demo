@@ -42,6 +42,20 @@ export interface Employee {
   updated_at: string
 }
 
+// Chấm công theo NGÀY (dữ liệu thô từ máy chấm công). Các chỉ số muộn/OT/tổng hợp
+// được suy ra ở tầng hiển thị (xem lib/nhan-su/attendance.ts).
+export interface AttendanceRecord {
+  id: string
+  employee_id: string
+  record_date: string        // "YYYY-MM-DD"
+  check_in: string | null    // giờ vào đầu tiên "HH:MM:SS"
+  check_out: string | null   // giờ ra cuối cùng "HH:MM:SS"
+  work_hours: number | null  // tổng giờ làm trong ngày (đã trừ nghỉ trưa)
+  status: string | null
+  notes: string | null
+  created_at: string
+}
+
 export interface Candidate {
   id: string
   job_posting_id: string | null
