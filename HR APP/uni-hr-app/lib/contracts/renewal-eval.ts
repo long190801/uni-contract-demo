@@ -90,9 +90,13 @@ export async function announceRenewalToEvalChannel(
   const names = evaluatorNames.length ? evaluatorNames.join(", ") : "—"
 
   const title = `📝 Đánh giá tái ký hợp đồng / 계약 재계약 평가: ${employee.full_name}`
+  // Giữ nguyên cụm "sắp hết hạn" — flow Power Automate #3 (reply kết quả) lọc đúng post
+  // gốc bằng cách tìm cụm này CỘNG tên nhân viên (xem docs/teams-webhook-flow.md, Phần 3).
+  // Bỏ cụm này sẽ làm mọi kết quả đánh giá rơi vào nhánh "không tìm thấy" → đăng post rời,
+  // không reply đúng thread.
   const text =
-    `🇻🇳 Đề nghị hoàn thành đánh giá tái ký trước khi hết hạn.\n\n` +
-    `🇰🇷 만료 전 재계약 평가를 완료해 주시기 바랍니다.`
+    `🇻🇳 Hợp đồng sắp hết hạn — đề nghị hoàn thành đánh giá tái ký.\n\n` +
+    `🇰🇷 계약이 곧 만료됩니다 — 재계약 평가를 완료해 주시기 바랍니다.`
   const facts = [
     { name: "Nhân viên / 직원", value: employee.full_name },
     { name: "Loại HĐ / 계약 유형", value: `${typeVi} / ${typeKo}` },
