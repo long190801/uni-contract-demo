@@ -24,9 +24,9 @@ add(kv('Thông tin chi tiết về nhà xuất khẩu', [
 ], { red: true }));
 add(gap(80));
 const imp = [
-  { t: 'CÔNG TY TNHH VN CHEN LAIN METAL', b: true },
-  'Địa chỉ: Lô A3.3 và A3.4 KCN Chơn Thành I, Phường Chơn Thành, Thành phố Đồng Nai, Việt Nam',
-  'Tel: 84-274-3737191',
+  { t: '<TÊN CÔNG TY NHẬP KHẨU>', b: true },
+  'Địa chỉ: <địa chỉ nhà nhập khẩu>',
+  'Tel: <số điện thoại>',
 ];
 add(kv('Thông tin chi tiết về nhà nhập khẩu', imp, { red: true }));
 add(gap(80));

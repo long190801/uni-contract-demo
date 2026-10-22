@@ -298,6 +298,6 @@ add(sub('Người đọc lưu ý'));
 add(para({ t: 'Thông tin trong bảng chỉ dẫn an toàn này dựa trên kiến thức khoa học kỹ thuật hiện tại. Mục đích của thông tin là tạo sự chú ý về khía cạnh sức khỏe và an toàn liên quan đến sản phẩm do PPG cung cấp, và đề xuất các biện pháp phòng ngừa khi lưu trữ cũng như xử lý sản phẩm. Các thuộc tính của sản phẩm không được chứng nhận hay đảm bảo. Chúng tôi không chịu trách nhiệm đối với những trường hợp không tuân thủ các biện pháp phòng ngừa được quy định trong bảng chỉ dẫn an toàn này hay sử dụng sản phẩm không đúng cách.', b: true }));
 add(gap(300));
 add(new Paragraph({ alignment: AlignmentType.CENTER, indent: { left: 4600 }, spacing: { before: 200, after: 0 },
-  keepNext: true, children: [L.run({ t: 'CÔNG TY TNHH VN CHEN LAIN METAL', b: true, c: RED, sz: 24 })] }));
+  keepNext: true, children: [L.run({ t: '<TÊN CÔNG TY NHẬP KHẨU>', b: true, c: RED, sz: 24 })] }));
 
 module.exports = B;

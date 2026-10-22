@@ -1,6 +1,6 @@
 ---
 name: msds-viet-hoa
-description: Soạn Phiếu an toàn hóa chất (MSDS/SDS) tiếng Việt từ MSDS gốc (PDF/Word tiếng Anh hoặc ngôn ngữ khác) theo form mẫu Phụ lục I Thông tư 01/2026/TT-BCT của UNI, và dựng lại trình bày/áp các chỗ bôi đỏ cho MSDS đã dịch. Dùng skill này bất cứ khi nào người dùng nhắc MSDS, SDS, phiếu an toàn hóa chất, "dịch MSDS", "làm MSDS tiếng Việt", "điền form mẫu MSDS", "trình bày lại MSDS", "sửa bôi đỏ MSDS", hoặc đưa file SDS của PPG, Chuan Mao, Kester, Amphenol… kể cả khi họ không gọi tên skill.
+description: Soạn Phiếu an toàn hóa chất (MSDS/SDS) tiếng Việt từ MSDS gốc (PDF/Word tiếng Anh hoặc ngôn ngữ khác) theo form mẫu Phụ lục I Thông tư 01/2026/TT-BCT của UNI, và dựng lại trình bày/áp các chỗ bôi đỏ cho MSDS đã dịch. Dùng skill này bất cứ khi nào người dùng nhắc MSDS, SDS, phiếu an toàn hóa chất, "dịch MSDS", "làm MSDS tiếng Việt", "điền form mẫu MSDS", "trình bày lại MSDS", "sửa bôi đỏ MSDS", hoặc đưa file SDS của PPG, Kester, Amphenol… kể cả khi họ không gọi tên skill.
 ---
 
 # MSDS tiếng Việt (UNI)
@@ -13,7 +13,7 @@ Phiếu này nộp cho cơ quan quản lý và khách hàng, nên sai một con 
 1. Xác định **MSDS gốc** (file người dùng đưa). Đọc toàn bộ, kể cả bảng thành phần, mục vận chuyển và mục pháp luật.
 2. Mở **form mẫu** `assets/Form-mau-Template.docx` (đi kèm skill). Nếu người dùng có form mẫu mới hơn thì dùng bản của họ.
 3. Hỏi người dùng những thông tin mà MSDS gốc không có và form mẫu bắt buộc: **nhà nhập khẩu** (tên, địa chỉ, ĐT), **nhà xuất khẩu** (tên, địa chỉ, ĐT). Mục "liên hệ khẩn cấp" trùng với nhà nhập khẩu. Đừng tự đoán.
-4. Hỏi xem có phải khách Chuan Mao / lô PPG không. Nếu có, đọc thêm `references/chuan-mao-bo-sua-boi-do.md`.
+4. Hỏi xem người dùng có muốn áp bộ sửa bôi đỏ cho MSDS PPG không. Nếu có, đọc thêm `references/bo-sua-boi-do-chuan.md`.
 
 ## Quy tắc bắt buộc
 
@@ -33,7 +33,7 @@ Lý do: ở lần làm Kester 951, Claude tự gán P-code, H-code, EC, công th
 - Tiêu đề 16 mục luôn đặt cố định như sau (không theo PDF gốc), viết hoa chữ đầu, bôi đỏ phần tiêu đề:
   I Nhận dạng hóa chất và thông tin về nhà cung cấp · II Nhận dạng đặc tính nguy hiểm của hóa chất · III Thông tin về thành phần các chất · IV Biện pháp sơ cứu về y tế · V Biện pháp xử lý khi có hỏa hoạn · VI Biện pháp phòng ngừa, ứng phó khi có sự cố · VII Yêu cầu về sử dụng, bảo quản · VIII Kiểm soát phơi nhiễm/yêu cầu về thiết bị bảo vệ cá nhân · IX Đặc tính lý, hóa của hóa chất · X Mức ổn định và phản ứng của hóa chất · XI Thông tin về độc tính · XII Thông tin về sinh thái · XIII Thông tin về thải bỏ · XIV Thông tin khi vận chuyển · XV Thông tin về pháp luật · XVI Các thông tin cần thiết khác, bao gồm các thông tin khi xây dựng và hiệu đính Phiếu an toàn hóa chất.
 - Phân loại nguy hiểm ở mục II và XI: đổi "Loại" thành "Cấp" (ví dụ "Loại 1" → "Cấp 1", cột "Loại" của bảng độc tính → "Cấp"). Không đổi các chữ "Loại" khác như "Loại sản phẩm".
-- Mục XV chỉ gồm nội dung bôi đỏ chuẩn (xem `references/chuan-mao-bo-sua-boi-do.md`). Xóa hết nội dung của nguồn: bảng Thông tư 05/1999/TT-BYT, Nghị định thư Montreal, Hiệp ước Stockholm.
+- Mục XV chỉ gồm nội dung bôi đỏ chuẩn (xem `references/bo-sua-boi-do-chuan.md`). Xóa hết nội dung của nguồn: bảng Thông tư 05/1999/TT-BYT, Nghị định thư Montreal, Hiệp ước Stockholm.
 - Ngày phát hành/hiệu chỉnh (đầu trang 1, khung đầu các trang sau và mục XVI) = **ngày tạo bản Việt theo giờ GMT+7**, viết "22 tháng 10 năm 2026" (chữ "tháng" viết thường), bôi đỏ. Hàm `ngayHomNay()` trong `scripts/lib.js` tự lấy. Các mục còn lại của XVI (ngày lần trước, phiên bản, "Chuẩn bị bởi: EHS", "do PPG cung cấp") giữ nguyên theo MSDS gốc. Khối ký cuối file đổi thành công ty nhập khẩu (bôi đỏ). Không bịa tên người ký: nếu người dùng không đưa, để trống và báo lại.
 
 ## Cách tạo file
@@ -74,4 +74,4 @@ Khi file Word được chuyển từ PDF (nhiều section, text box) và vỡ tr
 
 ## Bôi đỏ
 
-Bôi đỏ (`EE0000`) là cách Long đánh dấu những chỗ **đã chỉnh so với MSDS gốc** để khách/đồng nghiệp rà. Bôi đỏ khi người dùng yêu cầu, khi áp bộ sửa Chuan Mao, hoặc khi thay thông tin theo yêu cầu của người dùng (nhà xuất khẩu, nhà nhập khẩu, khẩn cấp, khối ký) như ở các bản đã giao. Nội dung bộ sửa nằm ở `references/chuan-mao-bo-sua-boi-do.md`. Chỗ nào ghi "hỏi Long" thì hỏi, không tự quyết.
+Bôi đỏ (`EE0000`) là cách Long đánh dấu những chỗ **đã chỉnh so với MSDS gốc** để khách/đồng nghiệp rà. Bôi đỏ khi người dùng yêu cầu, khi áp bộ sửa bôi đỏ, hoặc khi thay thông tin theo yêu cầu của người dùng (nhà xuất khẩu, nhà nhập khẩu, khẩn cấp, khối ký) như ở các bản đã giao. Nội dung bộ sửa nằm ở `references/bo-sua-boi-do-chuan.md`. Chỗ nào ghi "hỏi Long" thì hỏi, không tự quyết.
